@@ -1,8 +1,3 @@
-
-The report clearly describes the learning algorithm, along with the chosen hyperparameters. It also describes the model architectures for any neural networks.
-A plot of rewards per episode is included to illustrate that the agent is able to receive an average reward (over 100 episodes) of at least +13. The submission reports the number of episodes needed to solve the environment.
-The submission has concrete future ideas for improving the agent's performance.
-
 # Project 1 Navigation : report
 
 In this project, a DQN learning algorithm is used to train an agent to navigate in the "banana collector" environment of "Unity".
