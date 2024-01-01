@@ -31,16 +31,12 @@ The pseudo code of Q learning algorithm is :
   Take action A<sub>t</sub> and observe reward and state, R<sub>t+1</sub>, S<sub>t+1</sub>
   Update *Q(s|a)* <br/>
   
-**Q-networks** approximate the Q-function as a neural network given a state, Q-values for each action<br/>
-*Q(s, a, θ)* is a neural network that define obejctive function by mean-squared error in Q-values
-  <a href="https://www.codecogs.com/eqnedit.php?latex=\mathfrak{L}{(\theta)&space;=&space;\mathrm{E}\left&space;[&space;\left&space;(&space;\underbrace{r&space;&plus;&space;\gamma&space;\underset{a^{'}}{\mathrm{max}}Q(s^{'},a^{'},\theta)}&space;-&space;Q(s,a,\theta)\right&space;)^{2}&space;\right&space;]&space;}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\mathfrak{L}{(\theta)&space;=&space;\mathrm{E}\left&space;[&space;\left&space;(&space;\underbrace{r&space;&plus;&space;\gamma&space;\underset{a^{'}}{\mathrm{max}}Q(s^{'},a^{'},\theta)}&space;-&space;Q(s,a,\theta)\right&space;)^{2}&space;\right&space;]&space;}" title="\mathfrak{L}{(\theta) = \mathrm{E}\left [ \left ( \underbrace{r + \gamma \underset{a^{'}}{\mathrm{max}}Q(s^{'},a^{'},\theta)} - Q(s,a,\theta)\right )^{2} \right ] }" /></a>
-  <br/>
-
-To find optimum parameters &theta;, optimise by SGD, using &delta;*L(&theta;)*/&delta;*&theta;* <br/>
-This algorithm diverges because stages are correlated and targets are non-stationary. 
+**Q-networks** approximate the Q-function with a neural network *Q(s, a, θ)*. 
+Given a state, it outputs the Q-values for each possible action <br/>
+To find optimum parameters &theta;, optimise by Stochastic Gradient Descent, using &delta;*L(&theta;)*/&delta;*&theta;* <br/>
 
 **DQN-Experience replay**<br/>
-In order to deal with the correlated states, the agent build a dataset of experience and then makes random samples from
+In order to deal with correlated states, the agent build a dataset of experience and then makes random samples from
 the dataset.<br/>
 
 **DQN-Fixed Target** <br/>
