@@ -28,7 +28,7 @@ The pseudo code of Q learning algorithm is :
   
 **Q-networks** approximate the Q-function with a neural network *Q(s, a, θ)*. 
 Given a state, it outputs the Q-values for each possible action <br/>
-To find optimum parameters &theta;, optimise by Stochastic Gradient Descent, using &delta;*L(&theta;)*/&delta;*&theta;* <br/>
+The model parameters &theta are optimise by Stochastic Gradient Descent.
 
 **DQN-Experience replay**<br/>
 In order to deal with correlated states, the agent build a dataset of experience and then makes random samples from
@@ -53,9 +53,9 @@ Number of features
 QNetwork(
   (layers): ModuleList(
     (0): Linear(in_features=37, out_features=64, bias=True)
-    (1): Linear(in_features=64, out_features=32, bias=True)
+    (1): Linear(in_features=64, out_features=128, bias=True)
   )
-  (output): Linear(in_features=32, out_features=4, bias=True)
+  (output): Linear(in_features=128, out_features=4, bias=True)
 )
 ~~~
 
