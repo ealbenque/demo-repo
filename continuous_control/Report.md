@@ -2,18 +2,18 @@
 
 ## Implementation
 The resolution of the environment involves the utilization of a deep reinforcement learning agent.
-The corresponding implementation is available in the continuous_control folder
-* continuous_control.ipynb contains the main code with the traing loop and results
+The corresponding implementation is available in the continuous_control folder :
+* continuous_control.ipynb contains the main code with the training loop and results
 * agent.py contains the reinforcement learning agent
 * model.py includes the neural networks serving as the estimators
-* the weights folder contains the saved weight of the different neural networks
+* the weights folder contains the saved weight of the different neural networks.
+
 The starting point for the code was borrowed from the Udacity ddpg-pendulum exercise and subsequently modified to suit the requirements of this specific problem.
 
 ### Learning algorithm
-The learning algoithm used here is DDPG : an actor-critic approach was used as the learning algorithm for the agent.
-https://arxiv.org/abs/1509.02971
-This algorithm  is quite similar to DQN, but also manages to solve tasks with continuous action spaces. As an off-policy algorithm
-DDPG utilizes four neural networks: a local actor, a target actor, a local critic and a target critic
+The learning algorithm used here is [DDPG](https://arxiv.org/abs/1509.02971).
+
+This algorithm is an actor-critic approach quite similar to the value-based DQN algorithm. Unlike DQN, it can solve tasks with continuous action spaces. It's an off-policy algorithm that uses four neural networks: two for the actor and two for the critic with in each case a local network and a target network.
 Each training step the experience (state, action, reward, next state) the 20 agents gained was stored.
 Then every second training step the agent learned from a random sample from the stored experience. The actor tries to estimate the
 optimal policy by using the estimated state-action values from the critic while critic tries to estimate the optimal q-value function
