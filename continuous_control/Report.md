@@ -22,38 +22,34 @@ methods at the same time.
 
 ### hyperparameters
 The following hyperparameters were used:
-* replay buffer size: 1e6
-* max timesteps: 3000 (all episodes get shutdown after 3000 timesteps)
-* minibatch size: 256
+* replay buffer size: 1e5
+* max timesteps: 1000
+* batch size: 128
 * discount factor: 0.99
 * tau (soft update for target networks factor): 1e-3
-* learning rate: 1e-4 (actor) and 1e-3 (critic)
-* update interval (how often to learn): 2
-* beta start (factor for the noise added to the actions selected by the actor): 0.1
-* beta decay factor: 0.995
-* min beta: 0.01
+* learning rate actor: 1e-3
+* learning rate critic : 1e-3
 
 ### Neural networks
-The actor model is a simple feedforward network:
-* Batch normalization
-* Input layer: 33 (input) neurons (the state size)
-* 1st hidden layer: 128 neurons (leaky relu)
-* 2nd hidden layer: 128 neurons (leaky relu)
+The actor model is a simple feedforward network: maps state to action
+* Input layer: 33  neurons (the state size)
+* 1st hidden layer: fully connected, 400 neurons with ReLu activation
+* 2nd hidden layer: fully connected, 300 neurons with ReLu activation
 * output layer: 4 neurons (1 for each action) (tanh)
 
-The critic model:
+The critic model: maps state action pairs to value
 * Batch normalization
-* Input layer: 33 (input) neurons (the state size)
-* 1st hidden layer: 132 neurons (action with action_size 4 added) (leaky relu)
-* 2nd hidden layer: 128 neurons (leaky relu)
+* Input layer: 33 neurons (the state size) + 4 neurons (1 for each actions)
+* 1st hidden layer: fully connected, 400 neurons with ReLu activation
+* 2nd hidden layer: fully connected, 300 neurons with ReLu activation
 * output layer: 1 neuron
 
 ## Results
-The agent was able to solve the environment after 133 episodes achieving an average score of 30.11 over the last 100 episodes
+The agent was able to solve the environment after 108 episodes achieving an average score over 30 over the last 100 episodes
 of the training.
 
 The average scores of the 20 agents during the training process:
-![scores](https://user-images.githubusercontent.com/9535190/78456465-2bd03180-76a4-11ea-8cb9-bedcb75827bd.png)
+![plot_01](https://github.com/ealbenque/demo-repo/assets/137990986/1de45239-0c0f-41d4-aa59-2d94a799e177)
 
 ## possible future improvements
 The algorithm could be improved in many ways. For example one could implement some DQN improvements, for example Prioritized Experience Replays
